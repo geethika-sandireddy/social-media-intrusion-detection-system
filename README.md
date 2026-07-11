@@ -61,9 +61,6 @@ The database schema supports:
 The SQL schema is available in the `database/setup.sql` file.
 
 
-## Project Status
-This project is currently under development. Future enhancements may include advanced anomaly detection techniques, improved scalability, and cloud deployment.
-
 
 ## Disclaimer
 This project is developed for academic and learning purposes to demonstrate intrusion detection concepts and secure authentication practices.
