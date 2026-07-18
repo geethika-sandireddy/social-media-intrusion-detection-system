@@ -1,4 +1,3 @@
-![Social Media Intrusion Detection System](https://raw.githubusercontent.com/geethika-sandireddy/social-media-intrusion-detection-system/master/[image-filename-here])
 Social Media Intrusion Detection System
 
 ## Overview
