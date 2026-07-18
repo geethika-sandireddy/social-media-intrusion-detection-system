@@ -29,14 +29,17 @@ The system focuses on identifying common attack patterns such as brute force log
 
 ## Project Structure
 social-media-intrusion-detection-system/
-│
-├── src/
-│ └── Intrusense.java
-│
-├── database/
-│ └── setup.sql
-│
-└── README.md
+|             
+|__ src
+|  |
+|  |__Intrusense.java
+|
+|__ database/
+|  |
+|  |__setup.sql
+|
+|
+|__README.md
 
 
 
