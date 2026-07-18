@@ -1,6 +1,14 @@
+# 1. Start with just the database creation
+cat > schema.sql << 'EOF'
 CREATE DATABASE IF NOT EXISTS auth_demo
   CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE auth_demo;
+EOF
+git add schema.sql
+git commit -m "Add auth_demo database creation"
+
+# 2. Add users table
+cat >> schema.sql << 'EOF'
 
 CREATE TABLE IF NOT EXISTS users (
   id INT AUTO_INCREMENT PRIMARY KEY,
@@ -10,6 +18,12 @@ CREATE TABLE IF NOT EXISTS users (
   locked_until DATETIME NULL,
   fingerprint_pin VARCHAR(20) NULL
 );
+EOF
+git add schema.sql
+git commit -m "Add users table with lockout and fingerprint fields"
+
+# 3. Add stylometry table
+cat >> schema.sql << 'EOF'
 
 CREATE TABLE IF NOT EXISTS stylometry (
   id INT AUTO_INCREMENT PRIMARY KEY,
@@ -19,6 +33,12 @@ CREATE TABLE IF NOT EXISTS stylometry (
   avg_sent_len DOUBLE,
   FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
+EOF
+git add schema.sql
+git commit -m "Add stylometry table linked to users"
+
+# 4. Add login_logs table
+cat >> schema.sql << 'EOF'
 
 CREATE TABLE IF NOT EXISTS login_logs (
   id INT AUTO_INCREMENT PRIMARY KEY,
@@ -30,6 +50,12 @@ CREATE TABLE IF NOT EXISTS login_logs (
   ts TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL
 );
+EOF
+git add schema.sql
+git commit -m "Add login_logs table for tracking auth attempts"
+
+# 5. Add security_events table
+cat >> schema.sql << 'EOF'
 
 CREATE TABLE IF NOT EXISTS security_events (
   id INT AUTO_INCREMENT PRIMARY KEY,
@@ -39,3 +65,6 @@ CREATE TABLE IF NOT EXISTS security_events (
   details TEXT,
   timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+EOF
+git add schema.sql
+git commit -m "Add security_events table for auditing"
